@@ -1,12 +1,7 @@
-import { Given } from '@cucumber/cucumber'
+import { Given, When, Then } from '@cucumber/cucumber'
 
-Given(
-    /^I am on the home page$/,
-    async function() {
-
-        console.log("I am on the home page");
-
-        await global.page.goto("http://localhost:3000/")
-
+Given('I am on the {string} page', async(pageId: string) => {
+    console.log(`INFO: I am on the ${pageId} page`);
+    await global.page.goto("http://localhost:3000/")
     }
 )
