@@ -21,7 +21,6 @@ Before(async(scenario) => {
     // });
 
     global.context = await global.browser.newContext();
-    
     global.page = await global.context.newPage();
 });
 
@@ -30,8 +29,8 @@ After(async(scenario) => {
     if(scenarioStatus === 'FAILED') {
         await global.page.screenshot({
             path: `./reports/screenshots/${scenario.pickle.name}.png`
-        })
-    }
+        });
+    };
     // Added the contect.close below
     await global.context.close();
     await global.page.close();
