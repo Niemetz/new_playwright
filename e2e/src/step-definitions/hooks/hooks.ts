@@ -14,11 +14,14 @@ AfterAll(async() => {
 });
 
 Before(async(scenario) => {
-    global.context = await global.browser.newContext({
-        recordVideo: {
-            dir: './reports/videos/'+scenario.pickle.name,
-        }
-    });
+    // global.context = await global.browser.newContext({
+    //     recordVideo: {
+    //         dir: './reports/videos/'+scenario.pickle.name,
+    //     }
+    // });
+
+    global.context = await global.browser.newContext();
+    
     global.page = await global.context.newPage();
 });
 
