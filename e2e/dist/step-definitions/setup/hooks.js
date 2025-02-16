@@ -2,6 +2,8 @@
 
 var _cucumber = require("@cucumber/cucumber");
 
+var _parseEnv = require("../../env/parseEnv");
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -14,7 +16,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         case 0:
           console.log("\uD83E\uDD52 Running scenario: \"".concat(scenario.pickle.name, "\""));
           contextOptions = {// recordVideo: {
-            //     dir: './reports/videos/'+scenario.pickle.name,
+            //     dir: `${env('VIDEO_PATH')}${scenario.pickle.name}`,
             // },
           };
           _context.next = 4;
@@ -39,7 +41,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(scenario) {
     var _scenario$result;
 
-    var _this$screen, page, browser, scenarioStatus;
+    var _this$screen, page, browser, scenarioStatus, screenshot;
 
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
@@ -48,23 +50,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           scenarioStatus = (_scenario$result = scenario.result) === null || _scenario$result === void 0 ? void 0 : _scenario$result.status;
 
           if (!(scenarioStatus === 'FAILED')) {
-            _context2.next = 5;
+            _context2.next = 6;
             break;
           }
 
           _context2.next = 5;
           return page.screenshot({
-            path: "./reports/screenshots/".concat(scenario.pickle.name, ".png")
+            path: "".concat((0, _parseEnv.env)('SCREENSHOT_PATH')).concat(scenario.pickle.name, ".png")
           });
 
         case 5:
-          _context2.next = 7;
+          screenshot = _context2.sent;
+
+        case 6:
+          _context2.next = 8;
           return browser.close();
 
-        case 7:
+        case 8:
           return _context2.abrupt("return", browser);
 
-        case 8:
+        case 9:
         case "end":
           return _context2.stop();
       }
