@@ -3,17 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "cucumber:dev" : "cucumber-js src/features/**/*.feature --tags @dev --require-module ts-node/register --require src/step-definitions/**/**/*.ts",
-    "cucumber:smoke" : "cucumber-js src/features/**/*.feature --tags @smoke --require-module ts-node/register --require src/step-definitions/**/**/*.ts",
-    "cucumber:regression" : "cucumber-js src/features/**/*.feature --tags @regression --require-module ts-node/register --require src/step-definitions/**/**/*.ts"
+    "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
+    "cucumber": "yarn transpile && cucumber-js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
     "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.50.1",
+    "cucumber-pretty": "^6.0.1",
     "playwright": "1.16.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
