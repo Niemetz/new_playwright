@@ -6,9 +6,9 @@ Before(async function (this: ScenarioWorld, scenario: ITestCaseHookParameter) {
     console.log(`🥒 Running scenario: "${scenario.pickle.name}"`);
 
     const contextOptions = {
-        recordVideo: {
-            dir: './reports/videos/'+scenario.pickle.name,
-        },
+        // recordVideo: {
+        //     dir: './reports/videos/'+scenario.pickle.name,
+        // },
     };
 
     const ready = await this.init(contextOptions);
