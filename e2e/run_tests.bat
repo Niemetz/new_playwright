@@ -5,4 +5,4 @@ set tag=$1
 @REM "postcucumber": "ts-node ./src/reporter/cucumber-report.ts"
 
 set COMMON_CONFIG_FILE=env/common.env
-yarn run cucumber --profile %tag% || yarn run postcucumber
+npm run cucumber -- --profile %tag% || npm run postcucumber

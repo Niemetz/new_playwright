@@ -4,19 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.smoke = exports.regression = exports.dev = void 0;
-
 var _dotenv = _interopRequireDefault(require("dotenv"));
-
 var _parseEnv = require("./env/parseEnv");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _dotenv.default.config({
   path: (0, _parseEnv.env)('COMMON_CONFIG_FILE')
 });
-
-var common = "./src/features/**/*.feature                 --require-module ts-node/register                 --require ./src/step-definitions/**/**/*.ts                 -f json:./reports/report.json";
-var dev = exports.dev = "".concat(common, " --tags '@dev'");
-var smoke = exports.smoke = "".concat(common, " --tags '@smoke'");
-var regression = exports.regression = "".concat(common, " --tags '@regression'");
+const common = `./src/features/**/*.feature \
+                --require-module ts-node/register \
+                --require ./src/step-definitions/**/**/*.ts \
+                -f json:./reports/report.json`;
+const dev = exports.dev = `${common} --tags '@dev'`;
+const smoke = exports.smoke = `${common} --tags '@smoke'`;
+const regression = exports.regression = `${common} --tags '@regression'`;
 console.log('\n🥒 ✨ 🥒 ✨ 🥒 ✨ 🥒 ✨ 🥒 ✨ 🥒 ✨ 🥒 ✨ 🥒 \n');

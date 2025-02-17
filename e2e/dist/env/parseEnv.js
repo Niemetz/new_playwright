@@ -4,13 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.env = void 0;
-
-var env = exports.env = function env(key) {
-  var value = process.env[key];
-
+const env = key => {
+  const value = process.env[key];
   if (!value) {
-    throw Error("No environment variable found for ".concat(key));
+    throw Error(`No environment variable found for ${key}`);
   }
-
   return value;
 };
+exports.env = env;
