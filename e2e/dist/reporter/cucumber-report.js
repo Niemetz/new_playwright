@@ -68,7 +68,7 @@ var options = {
   screenshotsDirectory: (0, _parseEnv.env)('SCREENSHOT_PATH'),
   storeScreenshots: true,
   reportSuiteAsScenarios: true,
-  launchReport: true
+  launchReport: false
 }; // Generate the HTML report
 
 _cucumberHtmlReporter.default.generate(options); // import fs from 'fs';
