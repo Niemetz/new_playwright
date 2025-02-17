@@ -62,7 +62,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         case 5:
           screenshot = _context2.sent;
           _context2.next = 8;
-          return this.attach(screenshot, 'image/jnp');
+          return this.attach(screenshot, 'image/png');
 
         case 8:
           _context2.next = 10;
