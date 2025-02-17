@@ -25,7 +25,8 @@ Then('the {string} should contain the text {string}',
 
         const content = await page.textContent("[data-id='contacts']")
 
-        expect(content).toBe(expectedElementText)
+        // expect(content).toBe(expectedElementText)
+        expect(expectedElementText).toBe(content)
 
     }
 )

@@ -24,7 +24,7 @@ After(async function (this: ScenarioWorld, scenario: ITestCaseHookParameter) {
         const screenshot = await page.screenshot({
             path: `${env('SCREENSHOT_PATH')}${scenario.pickle.name}.png`,
         });
-        await this.attach(screenshot, 'image/png');
+        this.attach(screenshot, 'image/png');
     }
 
     await browser.close();

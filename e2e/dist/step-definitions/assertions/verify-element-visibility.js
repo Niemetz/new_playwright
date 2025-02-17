@@ -45,7 +45,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         case 4:
           content = _context2.sent;
-          (0, _test.expect)(content).toBe(expectedElementText);
+          // expect(content).toBe(expectedElementText)
+          (0, _test.expect)(expectedElementText).toBe(content);
 
         case 6:
         case "end":

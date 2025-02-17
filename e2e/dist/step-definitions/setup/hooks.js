@@ -50,7 +50,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           scenarioStatus = (_scenario$result = scenario.result) === null || _scenario$result === void 0 ? void 0 : _scenario$result.status;
 
           if (!(scenarioStatus === 'FAILED')) {
-            _context2.next = 8;
+            _context2.next = 7;
             break;
           }
 
@@ -61,17 +61,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         case 5:
           screenshot = _context2.sent;
-          _context2.next = 8;
-          return this.attach(screenshot, 'image/png');
+          this.attach(screenshot, 'image/png');
 
-        case 8:
-          _context2.next = 10;
+        case 7:
+          _context2.next = 9;
           return browser.close();
 
-        case 10:
+        case 9:
           return _context2.abrupt("return", browser);
 
-        case 11:
+        case 10:
         case "end":
           return _context2.stop();
       }
