@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
+    "precucumber": "rimraf reports && mkdir reports && echo {} > reports/report.json",
     "cucumber-compile": "yarn transpile && cucumber-js",
-    "cucumber": "COMMON_CONFIG_FILE=env/common.env yarn cucumber-compile"
+    "cucumber": "COMMON_CONFIG_FILE=env/common.env yarn cucumber-compile",
+    "postcucumber": "COMMON_CONFIG_FILE=env/common.env ts-node ./src/reporter/cucumber-report.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
+    "cucumber-html-reporter": "^7.2.0",
     "glob": "^11.0.1"
   }
 }
