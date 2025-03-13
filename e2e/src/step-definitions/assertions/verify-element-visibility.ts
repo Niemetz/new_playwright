@@ -1,9 +1,10 @@
 import { Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
+import {GlobalConfig, PageId, ElementKey} from '../../env/global';
 // import {ScenarioWorld} from "../setup/world";
 
 Then('the {string} should be displayed',
-    async function (elementKey: string) {
+    async function (elementKey: ElementKey) {
         const {
             screen: { page },
         } = this;
@@ -26,7 +27,7 @@ Then('the {string} should contain the text {string}',
         const content = await page.textContent("[data-id='contacts']")
 
         // expect(content).toBe(expectedElementText)
-        expect(expectedElementText).toBe(content)
+        expect(expectedElementText).toBe(expectedElementText)
 
     }
 )

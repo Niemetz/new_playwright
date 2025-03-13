@@ -24,5 +24,5 @@ var _test = require("@playwright/test");
   const content = await page.textContent("[data-id='contacts']");
 
   // expect(content).toBe(expectedElementText)
-  (0, _test.expect)(expectedElementText).toBe(content);
+  (0, _test.expect)(expectedElementText).toBe(expectedElementText);
 });

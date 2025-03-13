@@ -5,12 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ScenarioWorld = void 0;
 var _playwright = _interopRequireDefault(require("playwright"));
-var _cucumber = require("@cucumber/cucumber");
 var _parseEnv = require("../../env/parseEnv");
+var _cucumber = require("@cucumber/cucumber");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 class ScenarioWorld extends _cucumber.World {
   constructor(options) {
     super(options);
+    this.globalConfig = options.parameters;
+    this.globalVariables = {
+      currentScreen: ""
+    };
   }
   async init(contextOptions) {
     await this.screen?.page?.close();
@@ -32,7 +36,7 @@ class ScenarioWorld extends _cucumber.World {
     const browserType = _playwright.default[automationBrowser];
     const browser = await browserType.launch({
       headless: process.env.HEADLESS !== 'false',
-      args: ['--disable-web-security', '--disable-features=IsolateOrigins,site-per-process']
+      args: ['--disable-web-security', '--disable-features=IsolateOrigins, site-per-process']
     });
     return browser;
   };

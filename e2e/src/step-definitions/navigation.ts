@@ -1,15 +1,21 @@
 import { Given } from '@cucumber/cucumber'
-// import { ScenarioWorld } from './setup/world';
+import {
+    navigateToPage,
+} from '../support/navigation-behavior';
 
-Given('I am on the {string} page',
-    async function(pageId: string) {
+// import { ScenarioWorld } from './setup/world';
+import { PageId } from '../env/global'
+
+Given('I am on the {string}',
+    async function(pageId: PageId) {
         const {
             screen: { page },
+            globalConfig,
         } = this;
 
-        console.log(`I am on the ${pageId} page`);
+        console.log(`I am on the ${pageId}`);
 
-        await page.goto("http://localhost:3000/");
+        await navigateToPage(page, pageId, globalConfig);
 
     }
 )
