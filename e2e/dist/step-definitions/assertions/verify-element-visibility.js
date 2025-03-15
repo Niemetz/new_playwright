@@ -38,8 +38,6 @@ var _waitForBehavior = require("../../support/wait-for-behavior");
     return elementText?.includes(expectedElementText);
   });
 
-  // const content = await page.textContent("[data-id='contacts']")
-
-  // // expect(content).toBe(expectedElementText)
+  // const content = await page.textContent("[data-id='contacts']") // // expect(content).toBe(expectedElementText)
   // expect(expectedElementText).toBe(expectedElementText)
 });
