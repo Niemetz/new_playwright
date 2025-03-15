@@ -2,6 +2,7 @@
 
 var _cucumber = require("@cucumber/cucumber");
 var _parseEnv = require("../../env/parseEnv");
+(0, _cucumber.setDefaultTimeout)((0, _parseEnv.envNumber)('SCRIPT_TIMEOUT'));
 (0, _cucumber.Before)(async function (scenario) {
   console.log(`🥒 Running scenario: "${scenario.pickle.name}"`);
   const contextOptions = {

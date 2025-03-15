@@ -1,5 +1,10 @@
 {
-    "home page": {
-      "route": "/"
-    }
+  "home page": {
+    "route": "/",
+    "regex": "^/$"
+  },
+  "create contact": {
+    "route": "/tasks/create",
+    "regex": "^/tasks/create"
+  }
 }

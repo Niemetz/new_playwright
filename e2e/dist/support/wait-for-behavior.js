@@ -7,7 +7,7 @@ exports.waitFor = void 0;
 const waitFor = async (predicate, options) => {
   const {
     timeout = 10000,
-    wait = 2000
+    wait = 500
   } = options || {};
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   const startDate = new Date();

@@ -3,9 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.navigateToPage = void 0;
-// import {GlobalConfig, GlobalVariables, PageId} from '../env/global';
-
+exports.navigateToPage = exports.currentPathMatchesPageId = void 0;
 const navigateToPage = async (page, pageId, _ref) => {
   let {
     pagesConfig,
@@ -27,3 +25,18 @@ const navigateToPage = async (page, pageId, _ref) => {
   await page.goto(url.href);
 };
 exports.navigateToPage = navigateToPage;
+const pathMatchesPageId = (path, pageId, _ref2) => {
+  let {
+    pagesConfig
+  } = _ref2;
+  const pageRegexString = pagesConfig[pageId].regex;
+  const pageRegex = new RegExp(pageRegexString);
+  return pageRegex.test(path);
+};
+const currentPathMatchesPageId = (page, pageId, globalConfig) => {
+  const {
+    pathname: currentPath
+  } = new URL(page.url());
+  return pathMatchesPageId(currentPath, pageId, globalConfig);
+};
+exports.currentPathMatchesPageId = currentPathMatchesPageId;
