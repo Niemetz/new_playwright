@@ -13,15 +13,15 @@ export const navigateToPage = async (
     } = process.env;
 
     const hostPath = hostsConfig[`${hostName}`];
-    console.log("hostpath: ", hostPath )
+    // console.log("hostpath: ", hostPath )
 
     const url = new URL(hostPath);
-    console.log("url: ", url )
+    // console.log("url: ", url )
 
     const pageConfigItem = pagesConfig[pageId];
 
     url.pathname = pageConfigItem.route;
-    console.log("page route: ", url.pathname )
+    // console.log("page route: ", url.pathname )
 
     await page.goto(url.href);
 };
