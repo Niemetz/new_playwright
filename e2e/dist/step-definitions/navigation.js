@@ -3,7 +3,7 @@
 var _cucumber = require("@cucumber/cucumber");
 var _navigationBehavior = require("../support/navigation-behavior");
 var _waitForBehavior = require("../support/wait-for-behavior");
-(0, _cucumber.Given)('I am on the {string}', async function (pageId) {
+(0, _cucumber.Given)(`I am on the {string}`, async function (pageId) {
   const {
     screen: {
       page
@@ -16,5 +16,15 @@ var _waitForBehavior = require("../support/wait-for-behavior");
   await (0, _navigationBehavior.navigateToPage)(page, pageId, globalConfig);
 
   // if the regrex path matched the path that is specifed in the pages.json file then wait until that tab is fully loaded
+  await (0, _waitForBehavior.waitFor)(() => (0, _navigationBehavior.currentPathMatchesPageId)(page, pageId, globalConfig));
+});
+(0, _cucumber.Given)(`I am directed to the {string}`, async function (pageId) {
+  const {
+    screen: {
+      page
+    },
+    globalConfig
+  } = this;
+  console.log(`I am directed to the ${pageId}`);
   await (0, _waitForBehavior.waitFor)(() => (0, _navigationBehavior.currentPathMatchesPageId)(page, pageId, globalConfig));
 });

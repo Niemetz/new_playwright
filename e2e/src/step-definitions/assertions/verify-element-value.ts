@@ -8,7 +8,6 @@ Then('the {string} should contain the text {string}',
     async function(elementKey: ElementKey, expectedElementText: string) {
         const {
             screen: { page },
-            globalVariables,
             globalConfig,
         } = this;
 

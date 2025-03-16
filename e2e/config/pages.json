@@ -3,7 +3,7 @@
     "route": "/",
     "regex": "^/$"
   },
-  "create contact": {
+  "create contact page": {
     "route": "/tasks/create",
     "regex": "^/tasks/create"
   }

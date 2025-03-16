@@ -8,7 +8,6 @@ var _waitForBehavior = require("../../support/wait-for-behavior");
     screen: {
       page
     },
-    globalVariables,
     globalConfig
   } = this;
   console.log(`the ${elementKey} should contain the text ${expectedElementText}`);

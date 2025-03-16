@@ -1,0 +1,10 @@
+{
+  "Create Contact header" : "[data-id='create-contact-header']",
+  "header logo" : "[data-id='header-logo']",
+  "Name field" : "[data-id='name']",
+  "Gender pull-down list" : "[data-id='gender']",
+  "Phone field" : "[data-id='phone']",
+  "Street field" : "[data-id='street']",
+  "City field" : "[data-id='city']",
+  "Save button" : "[data-id='save-button']"
+}

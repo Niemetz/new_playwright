@@ -7,7 +7,7 @@ import { ScenarioWorld } from './setup/world';
 import { PageId } from '../env/global'
 import { waitFor } from '../support/wait-for-behavior';
 
-Given('I am on the {string}',
+Given(`I am on the {string}`,
     async function(this: ScenarioWorld, pageId: PageId) {
         const {
             screen: { page },
@@ -24,4 +24,18 @@ Given('I am on the {string}',
         await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig));
 
     }
-)
+);
+
+Given(
+    `I am directed to the {string}`,
+    async function (this: ScenarioWorld, pageId: PageId) {
+        const {
+            screen: { page },
+            globalConfig,
+        } = this;
+
+        console.log(`I am directed to the ${pageId}`);
+
+        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig));
+    }
+);
