@@ -16,6 +16,8 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 
 // Import custom types for global configuration and variables
 
+// import { GlobalConfig, GlobalVariables } from '../../env/global';
+
 // Define a composite type that groups together the browser, context, and page
 
 // Custom World class for Cucumber scenarios; each scenario gets its own instance.
@@ -28,14 +30,12 @@ class ScenarioWorld extends _cucumber.World {
     this.globalConfig = options.parameters;
 
     // Initialize global variables; for example, currentScreen will later hold the current page ID.
-    this.globalVariables = {
-      currentScreen: ""
-    };
+    // this.globalVariables = { currentScreen: "" };
   }
 
   // Declare properties that will be available on the ScenarioWorld instance.
   // Global configuration loaded from environment parameters
-  // Global runtime variables, e.g., currentScreen identifier
+  // globalVariables: GlobalVariables;   // Global runtime variables, e.g., currentScreen identifier
 
   // Will hold the browser, context, and page (initialized later)
 

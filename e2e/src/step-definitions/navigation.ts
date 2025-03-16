@@ -11,14 +11,11 @@ Given('I am on the {string}',
     async function(this: ScenarioWorld, pageId: PageId) {
         const {
             screen: { page },
-            globalVariables,
             globalConfig,
 
         } = this;
 
         console.log(`I am on the ${pageId}`);
-
-        globalVariables.currentScreen = pageId;
          
         // go to the page based on an entry in the pages.json file
         await navigateToPage(page, pageId, globalConfig);

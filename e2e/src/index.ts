@@ -18,6 +18,7 @@ dotenv.config({ path: env('COMMON_CONFIG_FILE') });
 const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'));
 // console.log("hostConfig: ", hostsConfig);
 
+// load the content of all json elements in the pages.json to global var pageConfig.
 const pagesConfig: PagesConfig = getJsonFromFile(env('PAGE_URLS_PATH'));
 // console.log("pagesConfig: ", pagesConfig);
 

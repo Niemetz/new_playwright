@@ -19,6 +19,7 @@ _dotenv.default.config({
 const hostsConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('HOSTS_URLS_PATH'));
 // console.log("hostConfig: ", hostsConfig);
 
+// load the content of all json elements in the pages.json to global var pageConfig.
 const pagesConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('PAGE_URLS_PATH'));
 // console.log("pagesConfig: ", pagesConfig);
 

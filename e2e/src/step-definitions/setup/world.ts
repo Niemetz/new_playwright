@@ -14,7 +14,8 @@ import { env } from '../../env/parseEnv';
 import { World, IWorldOptions, setWorldConstructor } from "@cucumber/cucumber";
 
 // Import custom types for global configuration and variables
-import { GlobalConfig, GlobalVariables } from '../../env/global';
+import { GlobalConfig } from '../../env/global';
+// import { GlobalConfig, GlobalVariables } from '../../env/global';
 
 // Define a composite type that groups together the browser, context, and page
 export type Screen = {
@@ -33,12 +34,12 @@ export class ScenarioWorld extends World {
         this.globalConfig = options.parameters as GlobalConfig;
 
         // Initialize global variables; for example, currentScreen will later hold the current page ID.
-        this.globalVariables = { currentScreen: "" };
+        // this.globalVariables = { currentScreen: "" };
     }
 
     // Declare properties that will be available on the ScenarioWorld instance.
     globalConfig: GlobalConfig;         // Global configuration loaded from environment parameters
-    globalVariables: GlobalVariables;   // Global runtime variables, e.g., currentScreen identifier
+    // globalVariables: GlobalVariables;   // Global runtime variables, e.g., currentScreen identifier
     screen!: Screen;                    // Will hold the browser, context, and page (initialized later)
 
     // Asynchronously initializes the browser session for the scenario.
